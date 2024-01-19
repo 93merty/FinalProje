@@ -1,0 +1,8 @@
+"Departments","RequireEducationSector","EmployeeCount","RequireInternCount"
+"Production, research and development department","Engineering Sciences","5","3"
+"Accounting and finance departments","Economic Sciences, Business Studies, Commerce and Law","3","3"
+"Sales","Economic Sciences, Business Studies, Commerce and Law","6","3"
+"Marketing department","Mathematics or Natural Sciences or Economic Sciences, Business Studies, Commerce and Law","4","4"
+"Information technology department","Language and Cultural Studies or Engineering Sciences","7","1"
+"Operations management department","Engineering Sciences or Economic Sciences, Business Studies, Commerce and Law","6","3"
+"Human resources","Economic Sciences, Business Studies, Commerce and Law","5","2"
