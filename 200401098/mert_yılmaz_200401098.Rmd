@@ -104,10 +104,34 @@ ggplot(subset(myDF_1, IndividualProject == "Yes" & MentalDisorder == "No"),
   theme(axis.text.x = element_text(angle = 30, hjust = 1))  # Bölüm adlarını 45 derece döndürmek için
 ```
 
+# Q4 : Veri seti ön işlemesi
+
+ <br>
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+myDF_1$EducationSector = as.factor(myDF_1$EducationSector)
+myDF_1$IndividualProject=as.factor(myDF_1$IndividualProject)
+myDF_1$MentalDisorder = as.factor(myDF_1$MentalDisorder)
+myDF_2$RequireEducationSector = as.factor(myDF_2$RequireEducationSector)
+```  
+
+**•** ilk veri setinde yer alan **"EducationSector"** ,**"InvidualProject"** ,**"MentalDisorder"** sütunları ile ikinci veri setinde yer alan **"RequireEducationSector"** sütunu  *chr* tipinden *factor* tipine dönüştürüldü.
+<br>
+<br>
+
+<span style="color:red; font-weight:bold;">*Tabloların güncellenmiş hali aşağıdadır.*</span>
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+myDF_1
+myDF_2
+```
+
 # Bu R CHUNK, test kodlarını içerir
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 testthat::test_file("Q1_tests_mert_yılmaz_200401098.R")
 testthat::test_file("Q2_tests_mert_yılmaz_200401098.R")
 testthat::test_file("Q3_tests_mert_yılmaz_200401098.R")
+testthat::test_file("Q4_tests_mert_yılmaz_200401098.R")
 
 ```
