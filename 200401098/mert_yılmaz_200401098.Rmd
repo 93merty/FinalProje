@@ -197,6 +197,15 @@ ggplot(sorted_data, aes(x = GSkor)) +
 ```
 
 
+# Q7 : Sonuç değerlendirme, tavsiyeler
+**Aşağıda sunulmuştur:**
+<br>
+Projenin sonuç değerlendirmesi, girişimci adayları belirleme amacına başarılı bir şekilde ulaşıldığını göstermektedir.Veri setleri kullanılarak yapılan analizler sonucunda, girişimci özelliklere sahip adaylar bölümlerine göre başarılı bir şekilde eşleştirilmiş, kümelendirilmiş ve sıralanmıştır. Bu, iş için uygun adayları belirleme sürecinde etkili bir rehberlik sağlar. Elde edilen sonuçların mantıklı olması, pozitif ve negatif özelliklerin dengeli bir şekilde değerlendirilmesiyle sağlanmıştır. Sonuçlar, proje hedefi olan iş için uygun adayları belirleme konusunda müşterilere değerli bir rehberlik sunabilir. Analizin güçlü yanı, girişimci özellikleriyle ilgili kapsamlı bir değerlendirme yapılması ve bu özelliklerin bölümlere göre gruplandırılmasıdır. Ancak, zayıf yanları arasında ikinci veri setinin alım şartlarını sağlayan adayları belirleme konusunda detaylı bilgi içermemesi yer alabilir. İleriki çalışmalar için öneri olarak, ikinci veri setinin daha spesifik kriterler içermesi ve daha fazla özellik eklenmesiyle analizin daha kapsamlı hale getirilebileceği düşünülmektedir.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+sonuc_degerlendirmesi <-"Projenin sonuç değerlendirmesi, girişimci adayları belirleme amacına başarılı bir şekilde ulaşıldığını göstermektedir.Veri setleri kullanılarak yapılan analizler sonucunda, girişimci özelliklere sahip adaylar bölümlerine göre başarılı bir şekilde eşleştirilmiş, kümelendirilmiş ve sıralanmıştır. Bu, iş için uygun adayları belirleme sürecinde etkili bir rehberlik sağlar. Elde edilen sonuçların mantıklı olması, pozitif ve negatif özelliklerin dengeli bir şekilde değerlendirilmesiyle sağlanmıştır. Sonuçlar, proje hedefi olan iş için uygun adayları belirleme konusunda müşterilere değerli bir rehberlik sunabilir. Analizin güçlü yanı, girişimci özellikleriyle ilgili kapsamlı bir değerlendirme yapılması ve bu özelliklerin bölümlere göre gruplandırılmasıdır. Ancak, zayıf yanları arasında ikinci veri setinin alım şartlarını sağlayan adayları belirleme konusunda detaylı bilgi içermemesi yer alabilir. İleriki çalışmalar için öneri olarak, ikinci veri setinin daha spesifik kriterler içermesi ve daha fazla özellik eklenmesiyle analizin daha kapsamlı hale getirilebileceği düşünülmektedir."
+```
+
 # Bu R CHUNK, test kodlarını içerir
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 testthat::test_file("Q1_tests_mert_yılmaz_200401098.R")
@@ -205,5 +214,5 @@ testthat::test_file("Q3_tests_mert_yılmaz_200401098.R")
 testthat::test_file("Q4_tests_mert_yılmaz_200401098.R")
 testthat::test_file("Q5_tests_mert_yılmaz_200401098.R")
 testthat::test_file("Q6_tests_mert_yılmaz_200401098.R")
-
+testthat::test_file("Q7_tests_mert_yılmaz_200401098.R")
 ```
