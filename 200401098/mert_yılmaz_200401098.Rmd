@@ -1,0 +1,30 @@
+---
+title: "Proje Rapor : Mert YILMAZ 200401098"
+output:
+  html_document:
+    df_print: paged
+---
+**Hocam, öncelikle çok teşekkür ederim. Bölümümüzde şu ana kadar ilk defa kesinlikle bu kadar faydalı şeyler öğrenebildiğimi ve yapabildiğimi hissediyorum. Fen Lisesi'nde öğretmenlik yapıyorum. Gerçekleştirdiğiniz eğitim rehberliğini rol model olarak II. dönem boyunca öğrencilere egzersizler vererek -aynı şekilde internet kullanımını serbest bırakarak- ilerleyeceğim. Kattığınız her şey için tekrar çok teşekkür ederim. Önümüzdeki dönem de mümkünse okulumuzda olmanızı ve seçebilmek için 4. sınıf ikinci dönemi için seçmeli dersinizin olmasını umuyorum.Esenlikler dilerim...**
+
+# Q1 : Problem tanımı
+
+Şirketimiz **CargoBox**. Problemimiz *Şirketimiz bir startup’dur. Bu sebeple çalışana ayıracak bütçesi kısıtlıdır. Mümkün olduğunca düşük maaşla çalışacak çalışanlara ihtiyacı vardır.Yeni bir girişim olduğu için şirketin geçmişi ve geleceği belirsizdir. Bu sebeple bir girişimde yer almak isteyecek, girişimci ruhu bulunan çalışanlar olmalıdır.*. 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# problemi tanımla
+problem_metni <- "Şirketimiz CargoBox. Problemimiz Şirketimiz bir startup’dur. Bu sebeple çalışana ayıracak bütçesi kısıtlıdır. Mümkün olduğunca düşük maaşla çalışacak çalışanlara ihtiyacı vardır. Yeni bir girişim olduğu için şirketin geçmişi ve geleceği belirsizdir. Bu sebeple bir girişimde yer almak isteyecek, girişimci ruhu bulunan çalışanlar olmalıdır."
+```
+
+# Q2 : Proje Amacı
+[Entrepreneurial Competency in University Students](https://www.kaggle.com/datasets/namanmanchanda/entrepreneurial-competency-in-university-students) adlı girişimci üniversite öğrencilerine ilişkin Kaggle veri seti ile İkinci bir veri seti olarak şirketimin departman adlarını ve departmanlarının üniversitelerin hangi bölümlerinden çalışanlar aradıkları gibi değişkenler içeren basit bir (https://drive.google.com/file/d/11d_qbho-N2cZz1ORmWvCrIRo2aQVVvtn/view?usp=sharing) veri setini *girişimci olan adayları filtreleyerek* ve *girişimci olan adayları bölümlerine göre kümeleyerek* ardından *adayların pozitif özelliklerinin toplamından negatif özelliklerinin toplamı ile sentetik veri oluşturulması sonucu adayların sıralanması* ve ikinci veri setinde **alım şartlarını sağlayan adayların belirlenmesi** yöntemlerini kullanarak problemi yok edeceğiz. Bu sayede de iş için uygun adayları belirlemeyi planlıyoruz. 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+amac_metni <- "[Entrepreneurial Competency in University Students](https://www.kaggle.com/datasets/namanmanchanda/entrepreneurial-competency-in-university-students) adlı girişimci üniversite öğrencilerine ilişkin Kaggle veri seti ile İkinci bir veri seti olarak şirketimin departman adlarını ve departmanlarının üniversitelerin hangi bölümlerinden çalışanlar aradıkları gibi değişkenler içeren basit bir (https://drive.google.com/file/d/11d_qbho-N2cZz1ORmWvCrIRo2aQVVvtn/view?usp=sharing) veri setini *girişimci olan adayları filtreleyerek* ve *girişimci olan adayları bölümlerine göre kümeleyerek* ardından *adayların pozitif özelliklerinin toplamından negatif özelliklerinin toplamı ile sentetik veri oluşturulması sonucu adayların sıralanması* ve ikinci veri setinde **alım şartlarını sağlayan adayların belirlenmesi** yöntemlerini kullanarak problemi yok edeceğiz. Bu sayede de iş için uygun adayları belirlemeyi planlıyoruz."
+```
+
+# Bu R CHUNK, test kodlarını içerir
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+testthat::test_file("Q1_tests_mert_yılmaz_200401098.R")
+testthat::test_file("Q2_tests_mert_yılmaz_200401098.R")
+
+```
