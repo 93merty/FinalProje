@@ -127,11 +127,28 @@ myDF_1
 myDF_2
 ```
 
+# Q5 : Veri mühendisliği 
+**Sentetik veri olarak girişimcilik skoru oluşturulması aşağıda verilmiştir:**
+<br>
+Tablolarda işlem gerçekleştirilebilmesi için öncelikle, daha önce proje yapmış ve mental sağlığı bozuk olmayan ve girişimci olan adayları filtreledik ardından filtrelenmiş dataya sentetik veri olarak en başa "GSkor" isimli bir sütun oluşturduk ve mevcut filtreli datada yer alan aynı satırdaki Perseverance, DesireToTakeInitiative, Competitiveness, SelfReliance, StrongNeedToAchieve, SelfConfidence, GoodPhysicalHealth isimli sütunlarda yer alan adayın girişimcilik düzeyini yordamaya yarayacak veri skorları içeren skorları toplayarak toplam girişimcilik skorunu bu oluşturulan "GSkor"a yazdık. Ardından GSkor değerine göre adayları büyükten küçüğe sıraladık. 
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(dplyr)
+
+filtered_data <- myDF_1 %>%
+  filter(IndividualProject == "Yes" & MentalDisorder == "No" & y == 1) %>%
+  mutate(GSkor = Perseverance + DesireToTakeInitiative + Competitiveness + SelfReliance + StrongNeedToAchieve + SelfConfidence + GoodPhysicalHealth) %>%
+  arrange(desc(GSkor)) %>%
+  select(GSkor, everything())
+
+filtered_data
+```
+
 # Bu R CHUNK, test kodlarını içerir
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 testthat::test_file("Q1_tests_mert_yılmaz_200401098.R")
 testthat::test_file("Q2_tests_mert_yılmaz_200401098.R")
 testthat::test_file("Q3_tests_mert_yılmaz_200401098.R")
 testthat::test_file("Q4_tests_mert_yılmaz_200401098.R")
+testthat::test_file("Q5_tests_mert_yılmaz_200401098.R")
 
 ```
