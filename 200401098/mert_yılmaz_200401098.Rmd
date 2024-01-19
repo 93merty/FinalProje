@@ -142,6 +142,60 @@ filtered_data <- myDF_1 %>%
 
 filtered_data
 ```
+# Q6 : Veri analizi
+**Karar mekanizması uygulanacak sentetik veri olarak "uygun adaylar"a ilişkin işlemler aşağıda verilmiştir:**
+<br>
+Burada GSkor'a göre sıralanmış listede GSkor'u 20'nin üzerinde olan adaylar filtrelendikten sonra bu adayların EducationSector bilgisi ikinci veri setindeki ihtiyaç olan EducationSector bilgilerini gösteren RequireEducationSector parametresinde aranmaktadır. Eğer eşleşme gerçekleşirse sıralı listedeki adayın numarası bu sentetik veri olarak oluşturulan "UygunAdaylar" parametresine eklenerek güncellenmektedir. Bu doğrultuda oluşturulmuş liste ve istatistikler ile, grafikler aşağıda sunulmuştur.
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Önceden tanımlanmış veri setleri: myDF_2 ve sorted_data
+sorted_data <- filtered_data %>%
+  filter(GSkor > 20) %>%
+  arrange(desc(GSkor))
+# myDF_2'de "UygunAdaylar" adında yeni bir sütun ekleyelim.
+myDF_2$UygunAdaylar <- NA
+
+# myDF_2'deki "RequireEducationSector" sütununu faktör olarak tanımlayalım.
+myDF_2$RequireEducationSector <- factor(myDF_2$RequireEducationSector)
+
+# sorted_data içindeki her satırdaki "EducationSector" bilgisini myDF_2'deki "RequireEducationSector" sütununda arayalım.
+for (i in 1:nrow(sorted_data)) {
+  sector_to_find <- factor(sorted_data$EducationSector[i], levels = levels(myDF_2$RequireEducationSector))
+  match_rows <- which(myDF_2$RequireEducationSector %in% sector_to_find)
+  
+  # Eğer eşleşme bulunursa, UygunAdaylar sütununa ilgili satır numarasını ekleyelim.
+  if (length(match_rows) > 0) {
+    myDF_2$UygunAdaylar[match_rows] <- ifelse(is.na(myDF_2$UygunAdaylar[match_rows]), "", paste(myDF_2$UygunAdaylar[match_rows], ",", sep = ""))
+    myDF_2$UygunAdaylar[match_rows] <- paste(myDF_2$UygunAdaylar[match_rows], i, sep = "")
+  }
+}
+# UygunAdaylar sütununu myDF_2 veri setine ekledikten sonra myDF_2'yi inceleyebilirsiniz.
+myDF_2 <- myDF_2 %>%
+  select(UygunAdaylar, everything())
+
+myDF_2
+```
+nihai kalan adayların bölümlerine göre dağılımı gösterilmiştir. Bazı bölümlerden hiç aday kalmadığı, bazı bölümlerden çok azaldığı, mühendislik bölümünden ise hala çok sayıda aday olduğu görülmüştür.
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Histogram oluştur
+
+ggplot(sorted_data, aes(x = EducationSector)) +
+  geom_bar() +
+  labs(title = "Frequency of Education Sectors",
+       x = "Education Sector",
+       y = "Frequency") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 30, hjust = 1))  # 30 derece eğimli x-eksen etiketleri
+```
+<br>
+nihai kalan adayların girişimcilik skorları gözükmektedir. GSkor'u 30 civarı olan adayların çok olduğu görülmüştür.
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# Histogram oluştur
+
+ggplot(sorted_data, aes(x = GSkor)) +
+  geom_histogram(binwidth = 5, fill = "blue", color = "black", alpha = 0.7) +
+  labs(title = "GSkor Histogram", x = "GSkor", y = "Frequency")
+```
+
 
 # Bu R CHUNK, test kodlarını içerir
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -150,5 +204,6 @@ testthat::test_file("Q2_tests_mert_yılmaz_200401098.R")
 testthat::test_file("Q3_tests_mert_yılmaz_200401098.R")
 testthat::test_file("Q4_tests_mert_yılmaz_200401098.R")
 testthat::test_file("Q5_tests_mert_yılmaz_200401098.R")
+testthat::test_file("Q6_tests_mert_yılmaz_200401098.R")
 
 ```
